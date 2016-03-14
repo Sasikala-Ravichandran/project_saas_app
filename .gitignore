@@ -15,3 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+/spec_steps
+
+# Ignore application configuration
+/config/application.yml
