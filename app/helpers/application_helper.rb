@@ -31,4 +31,15 @@ module ApplicationHelper
   def tenant_name(tenant_id)
     Tenant.find(tenant_id).name
   end
+
+  def transform_url(url_link, path)
+    replace_url = "https://www.dropbox.com/s"
+    final_link = url_link.gsub(/^.*?(?>view)/im, replace_url).sub!(path, "")
+  end
+
+  def class_name_for_tenant_form(tenant)
+    return "cc_form" if tenant.payment.blank?
+    ""
+  end
+
 end

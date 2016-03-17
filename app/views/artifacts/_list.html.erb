@@ -11,7 +11,13 @@
     <% artifacts.each do |artifact| %>
       <tr>
         <td><%= link_to artifact.name, artifact_path(artifact), class: "main-link" %></td>
-        <td><%= link_to "url", artifact.doc.url, class: "main-link", target: "new" %></td>
+        <td>
+          <% if artifact.doc.url %>
+            <%= link_to "View", transform_url(artifact.doc.url, artifact.doc.store_path), class: "btn btn-default", target: "_blank"%>
+          <% else %>
+            <div class="btn btn-default">No Document</div>
+          <% end %>
+        </td>
         <td>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       artifact_path(artifact),
@@ -23,7 +29,8 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to "New Artifact",
+<% if @project %>
+  <%= link_to "New Artifact",
             new_artifact_path(project_id: @project.id),
             :class => 'btn btn-primary' %>
+<% end %>
