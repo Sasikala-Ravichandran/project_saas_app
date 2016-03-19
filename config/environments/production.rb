@@ -3,17 +3,6 @@ Rails.application.configure do
   # devise says to define default url
   config.action_mailer.default_url_options = { :host => 'secure.simple-milia-app.com', :protocol => 'https' }
 
-  ActionMailer::Base.delivery_method = :smtp
-
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com'
-  }
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -92,7 +81,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'https://homeschool-tracker.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://project-saas.herokuapp.com/' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true 
   config.action_mailer.delivery_method = :smtp
