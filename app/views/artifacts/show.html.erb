@@ -1,27 +1,31 @@
-<%- model_class = Artifact -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+<div align="center">
+  <%- model_class = Artifact -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  </div>
 </div>
 
-<dl class="dl-horizontal">
+<dl class="dl-horizontal col-md-offset-4">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @artifact.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:key) %>:</strong></dt>
   <dd><%= @artifact.key %></dd>
   <dt><strong><%= model_class.human_attribute_name(:project_id) %>:</strong></dt>
   <dd><%= @artifact.project_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:doc) %>:</strong></dt>
-  <dd><%= @artifact.doc %></dd>
 </dl>
-<div class="center">
+
+<div align="center">
+  <div>
     <iframe src="https://docs.google.com/viewer?url=<%= @artifact.doc.url %>&embedded=true" %>" width="900" height="900" style="border: none; margin: 50px;"></iframe> 
   </div>
-<%= link_to t('.back', :default => t("helpers.links.back")),
+  <%= link_to "Download", @artifact.doc.url, :class => 'btn btn-default' %>
+  <%= link_to t('.back', :default => t("helpers.links.back")),
               artifacts_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_artifact_path(@artifact), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               artifact_path(@artifact),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+</div>

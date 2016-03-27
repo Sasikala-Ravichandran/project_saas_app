@@ -60,7 +60,7 @@
 
 .jumbotron {
   text-align: center;
-  background-image: asset-url('homeschool.jpg');
+  background-image: asset-url('image.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   color: #fff;
@@ -74,6 +74,7 @@
   h2 {
     font-size: 35px !important;
     .lead {
+      vertical-align: top;
       font-family: 'Helvetica Neue' !important;
       font-size: 30px !important;
     }
