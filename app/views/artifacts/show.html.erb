@@ -20,7 +20,7 @@
   </div>
   <%= link_to "Download", @artifact.doc.url, :class => 'btn btn-default' %>
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              artifacts_path, :class => 'btn btn-default'  %>
+                tenant_project_path(tenant_id: Tenant.current_tenant_id, id: @artifact.project_id), :class => 'btn btn-default' %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_artifact_path(@artifact), :class => 'btn btn-default' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
